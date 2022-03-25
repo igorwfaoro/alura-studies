@@ -1,13 +1,17 @@
 import React from 'react';
 import Button from '../Button/Button';
-import './Form.scss';
+import style from './Form.module.scss';
 
 function Form() {
 
-    return (
-        <form className="newTask">
+    function test() {
+        console.log('ddada');
+    }
 
-            <div className="inputContainer">
+    return (
+        <form className={style.newTask}>
+
+            <div className={style.inputContainer}>
                 <label htmlFor="task">
                     Add a new study
                 </label>
@@ -19,7 +23,7 @@ function Form() {
                     required />
             </div>
 
-            <div className="inputContainer">
+            <div className={style.inputContainer}>
                 <label htmlFor="time">
                     Time
                 </label>
@@ -33,7 +37,10 @@ function Form() {
                     required />
             </div>
 
-            <Button />
+            <Button
+                text="Add"
+                onClick={() => test()}
+            />
         </form>
     );
 }

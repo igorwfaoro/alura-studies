@@ -1,11 +1,19 @@
 import React from 'react';
-import './Button.scss';
+import style from './Button.module.scss';
 
-function Button() {
+interface ButtonProps {
+    text: string;
+    onClick?: () => void
+}
+
+function Button(props: ButtonProps) {
 
     return (
-        <button className="button">
-            button
+        <button
+            className={style.button}
+            onClick={props?.onClick}
+            type="button">
+            {props.text}
         </button>
     );
 }
