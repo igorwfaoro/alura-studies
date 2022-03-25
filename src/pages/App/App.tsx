@@ -1,4 +1,4 @@
-import React from 'react';
+import Cron from '../../components/Cron/Cron';
 import Form from '../../components/Form/Form';
 import List from '../../components/List/List';
 import style from './App.module.scss';
@@ -8,6 +8,7 @@ function App() {
     <div className={style.AppStyle}>
       <Form />
       <List />
+      <Cron />
     </div>
   );
 }
