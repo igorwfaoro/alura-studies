@@ -1,28 +1,22 @@
 import style from './List.module.scss';
 import Item from './Item/Item';
-import { useState } from 'react';
+import { Task } from '../../models/task';
 
-function List() {
+interface ListProps {
+    tasks: Task[];
+    selectTask: (selectedTask: Task) => void
+}
 
-    const [tasks, setTasks] = useState([
-        {
-            name: 'React',
-            time: '02:00:00'
-        },
-        {
-            name: 'Javascript',
-            time: '01:00:00'
-        }
-    ]);
+function List(props: ListProps) {
 
     return (
         <aside className={style.listTasks}>
-            <h2 onClick={() => setTasks([...tasks, {name: 'Test', time: '10:00:00'}])}>Today studies</h2>
+            <h2>Today studies</h2>
             <ul>
-                {tasks.map((t, i) => (
-                    <Item
-                        key={i}
-                        {...t}
+                {props.tasks.map(t => (
+                    <Item key={t.id}
+                        task={t}
+                        selectTask={props.selectTask}
                     />
                 ))}
             </ul>

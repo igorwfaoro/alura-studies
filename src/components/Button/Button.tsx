@@ -8,17 +8,11 @@ interface ButtonProps {
 
 function Button(props: ButtonProps) {
 
-    // function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    //     e.preventDefault();
-
-    //     if (props.onClick)
-    //         props.onClick(e);
-    // }
-
     return (
         <button
             className={style.button}
-            type={props.type || 'button'}>
+            type={props.type || 'button'}
+            onClick={props.onClick}>
             {props.children}
         </button>
     );
